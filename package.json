@@ -6,9 +6,11 @@
     "scripts": {
         "start": "npm run serve",
         "build": "npm run build-ts",
+        "db:migrate": "npx sequelize db:migrate",
         "serve": "node dist/server.js",
         "test": "jest --coverage=false --verbose",
         "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+        "prod:up": "docker-compose -f ./docker/docker-compose.yml up --build",
         "watch-node": "nodemon dist/server.js",
         "build-ts": "tsc",
         "watch-ts": "tsc -w",
@@ -25,10 +27,18 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@types/cors": "^2.8.13",
+        "@types/sequelize": "^4.28.15",
+        "cors": "^2.8.5",
+        "dotenv": "^16.1.4",
         "express": "^4.16.2",
         "http-errors": "^1.7.1",
         "morgan": "^1.9.1",
-        "pug": "^3.0.1"
+        "pg": "^8.11.0",
+        "pg-hstore": "^2.3.4",
+        "pug": "^3.0.1",
+        "sequelize": "^6.32.0",
+        "sequelize-typescript": "^2.1.5"
     },
     "devDependencies": {
         "@types/express": "4.17.17",
@@ -46,6 +56,7 @@
         "jest": "26.6.3",
         "nodemon": "2.0.22",
         "prettier": "2.8.8",
+        "sequelize-cli": "^6.6.1",
         "supertest": "6.3.3",
         "ts-jest": "26.5.6",
         "typescript": "4.9.5"

@@ -1,23 +1,23 @@
 import express from "express";
 import logger from "morgan";
-import * as path from "path";
+import { config } from "dotenv";
+import parser from "body-parser";
+import cors from "cors";
 
+config();
 import { errorHandler, errorNotFoundHandler } from "./middlewares/errorHandler";
+import equipments from "./controllers/equipments";
 
 // Routes
-import { index } from "./routes/index";
 // Create Express server
 export const app = express();
 
 // Express configuration
 app.set("port", process.env.PORT || 3000);
-app.set("views", path.join(__dirname, "../views"));
-app.set("view engine", "pug");
-
+app.use(parser.json());
 app.use(logger("dev"));
+app.use(cors());
 
-app.use(express.static(path.join(__dirname, "../public")));
-app.use("/", index);
-
+app.use("/equipments", equipments);
 app.use(errorNotFoundHandler);
 app.use(errorHandler);

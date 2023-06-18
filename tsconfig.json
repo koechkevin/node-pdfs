@@ -8,6 +8,8 @@
         "sourceMap": true,
         "outDir": "dist",
         "baseUrl": ".",
+        "experimentalDecorators": true,
+        "allowJs": true,
         "paths": {
             "*": [
                 "node_modules/*",
@@ -17,5 +19,5 @@
     },
     "include": [
         "src/**/*"
-    ]
+       ]
 }
