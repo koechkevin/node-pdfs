@@ -10,7 +10,7 @@
         "serve": "node dist/server.js",
         "test": "jest --coverage=false --verbose",
         "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
-        "prod:up": "docker-compose -f ./docker/docker-compose.yml up --build",
+        "prod:up": "docker-compose -f ./docker/docker-compose.yml up --build -d",
         "watch-node": "nodemon dist/server.js",
         "build-ts": "tsc",
         "watch-ts": "tsc -w",
