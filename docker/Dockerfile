@@ -14,6 +14,7 @@ FROM node:14
 WORKDIR /app
 
 COPY --from=builder /app/dist .
+COPY --from=builder /app/package.json .
 
 EXPOSE 8080
 CMD ["npm", "run", "start"]
