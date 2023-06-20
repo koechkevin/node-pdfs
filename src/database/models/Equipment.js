@@ -20,7 +20,7 @@ module.exports = sequelize => {
             allowNull: false,
         },
         status: {
-            type: DataTypes.ENUM("working", "not working"),
+            type: DataTypes.ENUM("working", "not working", "obsolete"),
             allowNull: false,
         },
         inventoryNo: {
@@ -78,6 +78,26 @@ module.exports = sequelize => {
         },
         depreciationRate: {
             type: DataTypes.FLOAT,
+            allowNull: true,
+        },
+        mflCode: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        isLease: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
+        furniture: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        personalNumber: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        phoneNumber: {
+            type: DataTypes.STRING,
             allowNull: true,
         },
     });

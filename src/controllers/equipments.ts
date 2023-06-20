@@ -121,7 +121,8 @@ export const updateEquipment = async (req: Request, res: Response) => {
         const equipment = await Equipments.findByPk(req.params.id);
         if (equipment) {
             await Equipments.update(req.body, { where: { id: req.params.id } });
-            res.json(equipment);
+            const eq = await Equipments.findByPk(req.params.id);
+            res.json(eq);
         } else {
             res.status(404).json({ error: "Equipment not found" });
         }
