@@ -70,7 +70,15 @@ module.exports = sequelize => {
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
+        },
+        value: {
+            type: DataTypes.FLOAT,
+            allowNull: true,
+        },
+        depreciationRate: {
+            type: DataTypes.FLOAT,
+            allowNull: true,
         },
     });
 

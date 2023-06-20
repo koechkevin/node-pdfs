@@ -2,6 +2,7 @@
 import { Request, Response, Router } from "express";
 import models from "../database/models";
 import { Op } from "sequelize";
+import { createBase64XLSXFromArray, getEquipmentValue } from "../utils";
 
 const { Equipments }: any = models as any;
 
@@ -11,14 +12,21 @@ export const createAnEquipment = async (req: Request, res: Response) => {
         const equipment = await Equipments.create(req.body);
         res.status(201).json(equipment);
     } catch (error) {
-        console.log(error.message)
+        console.log(error.message);
         res.status(500).json({ error });
     }
 };
 
 export const listEquipment = async (req: Request, res: Response) => {
     try {
-        const { page, limit, sort, filters = {}, search, order: _sortOrder } = req.body;
+        const {
+            page,
+            limit,
+            sort,
+            filters = {},
+            search,
+            order: _sortOrder,
+        } = req.body;
 
         // Set default values for pagination and sorting
         const pageNumber = page ? parseInt(page as string) : 1;
@@ -38,7 +46,10 @@ export const listEquipment = async (req: Request, res: Response) => {
         const where = Object.keys(filters).length
             ? {
                   [Op.or]: Object.keys(filters).map(key => ({
-                      [key]: key === "status" ? filters[key] :{ [Op.like]: `%${filters[key]}%` },
+                      [key]:
+                          key === "status"
+                              ? filters[key]
+                              : { [Op.like]: `%${filters[key]}%` },
                   })),
               }
             : {};
@@ -109,7 +120,7 @@ export const updateEquipment = async (req: Request, res: Response) => {
     try {
         const equipment = await Equipments.findByPk(req.params.id);
         if (equipment) {
-            await Equipments.update(req.body, { where:{ id: req.params.id } });
+            await Equipments.update(req.body, { where: { id: req.params.id } });
             res.json(equipment);
         } else {
             res.status(404).json({ error: "Equipment not found" });
@@ -136,8 +147,48 @@ export const deleteEquipment = async (req: Request, res: Response) => {
     }
 };
 
+export const getBase64 = async (req: Request, res: Response) => {
+    try {
+        const data = await Equipments.findAll();
+        const excel = createBase64XLSXFromArray(data);
+        res.status(200).json({ excel });
+    } catch (error) {
+        console.error("Error deleting equipment:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+export const metrics = async (req: Request, res: Response) => {
+    try {
+        const data = await Equipments.findAll();
+        const totalInitialValue = data.reduce(
+            (a: any, b: any) => (a || 0.0) + (b.value || 0.0),
+            0,
+        );
+        const totalValueAfterDepreciation = data.reduce((a: any, b: any) => {
+            const { value, depreciationRate, yearOfManufacture } = b;
+            const newValue = getEquipmentValue(
+                value || 0,
+                depreciationRate || 0,
+                yearOfManufacture,
+            );
+            return a + newValue;
+        }, 0);
+        const output = {
+            totalInitialValue,
+            totalValueAfterDepreciation,
+        };
+        res.status(200).json(output);
+    } catch (error) {
+        console.error("Error deleting equipment:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+router.get("/metrics", metrics);
 router.post("/create", createAnEquipment);
 router.post("/", listEquipment);
+router.get("/", getBase64);
 router.get("/:id", getEquipment);
 router.put("/:id", updateEquipment);
 router.delete("/:id", deleteEquipment);
