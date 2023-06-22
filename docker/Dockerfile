@@ -3,7 +3,7 @@ FROM node:14 as builder
 RUN mkdir -p /app
 WORKDIR /app
 COPY . /app
-
+COPY node_modules /app
 RUN yarn install
 
 RUN yarn run build
