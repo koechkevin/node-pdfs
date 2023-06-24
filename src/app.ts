@@ -13,11 +13,10 @@ import equipments from "./controllers/equipments";
 export const app = express();
 
 // Express configuration
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.API_PORT || process.env.PORT || 3000);
 app.use(parser.json());
 app.use(logger("dev"));
 app.use(cors());
-
 app.use("/equipments", equipments);
 app.use(errorNotFoundHandler);
 app.use(errorHandler);
