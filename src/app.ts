@@ -7,6 +7,7 @@ import cors from "cors";
 config();
 import { errorHandler, errorNotFoundHandler } from "./middlewares/errorHandler";
 import equipments from "./controllers/equipments";
+import furniture from "./controllers/furniture";
 
 // Routes
 // Create Express server
@@ -18,5 +19,6 @@ app.use(parser.json());
 app.use(logger("dev"));
 app.use(cors());
 app.use("/equipments", equipments);
+app.use("/furniture", furniture);
 app.use(errorNotFoundHandler);
 app.use(errorHandler);
