@@ -1,0 +1,102 @@
+@import "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0";
+hr {
+  margin: 20px 0;
+  border: none;
+  background-color: lightgray;
+  height: 1px; }
+
+body {
+  background-image: url("http://localhost:9358/public/images/background.png");
+  position: relative;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  min-height: 100vh;
+  padding: 30px 50px 40px;
+  box-sizing: border-box;
+  font-size: 10px; }
+  body .document-name {
+    text-align: right;
+    margin-top: 40px;
+    color: #26604e; }
+  body .align-right {
+    text-align: right; }
+  body td,
+  body tr {
+    padding: 4px;
+    font-size: 10px; }
+  body table {
+    border-spacing: 0; }
+  body .bold {
+    font-weight: bold; }
+  body .border-right {
+    border-right: 1px solid lightgray; }
+  body .border-top {
+    border-top: 1px solid lightgray; }
+  body .border-left {
+    border-left: 1px solid lightgray; }
+  body .border-bottom {
+    border-bottom: 1px solid lightgray; }
+    body .border-bottom td {
+      border-bottom: 1px solid lightgray; }
+  body .header {
+    display: flex;
+    gap: 18px; }
+    body .header * {
+      text-transform: uppercase; }
+    body .header .content {
+      padding: 16px 0; }
+      body .header .content p,
+      body .header .content span {
+        margin: 0;
+        font-size: 8px;
+        line-height: 10px;
+        color: rgba(0, 0, 0, 0.75); }
+        body .header .content p.name,
+        body .header .content span.name {
+          color: black;
+          font-size: 10px;
+          font-weight: 700;
+          margin-top: 8px; }
+      body .header .content svg {
+        width: 10px;
+        height: 10px;
+        color: rgba(0, 0, 0, 0.75); }
+      body .header .content span {
+        vertical-align: bottom; }
+      body .header .content p {
+        margin-left: 13px; }
+      body .header .content span.material-symbols-outlined {
+        font-size: 10px;
+        vertical-align: baseline; }
+      body .header .content .contacts {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px; }
+    body .header .logo {
+      height: 90px; }
+    body .header .title {
+      margin: 0;
+      color: #26604e;
+      font-size: 20px;
+      line-height: 24px; }
+  body * {
+    font-family: gothic, Arial, Helvetica, sans-serif; }
+
+footer {
+  display: flex;
+  justify-content: space-between; }
+  footer .powered_by p {
+    text-transform: uppercase;
+    font-size: 9px;
+    text-align: center; }
+  footer .powered_by .images {
+    display: flex;
+    justify-content: space-between; }
+    footer .powered_by .images div {
+      border-right: 1px solid;
+      padding-right: 10px;
+      margin-right: 10px; }
+    footer .powered_by .images .img {
+      width: auto; }

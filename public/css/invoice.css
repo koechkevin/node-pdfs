@@ -1,0 +1,61 @@
+.invoice .head {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  gap: 10px; }
+  .invoice .head table {
+    padding: 10px 0 0; }
+
+.invoice th {
+  text-align: left;
+  padding: 4px; }
+
+.invoice .t-head {
+  background-color: rgba(17, 72, 48, 0.1);
+  text-transform: uppercase;
+  font-size: 10px; }
+
+.invoice .body {
+  width: 100%; }
+  .invoice .body table {
+    width: 100%; }
+    .invoice .body table tbody .content {
+      padding: 20px 20px;
+      vertical-align: top; }
+  .invoice .body th {
+    text-align: center; }
+  .invoice .body .totals {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid lightgray; }
+    .invoice .body .totals .value {
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      width: 350px;
+      background-color: rgba(250, 204, 26, 0.5);
+      padding: 0 10px; }
+    .invoice .body .totals p {
+      font-weight: 700; }
+
+.invoice .payments {
+  margin-top: 350px; }
+
+.invoice .accounts {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px; }
+  .invoice .accounts .table-1 {
+    width: 70%; }
+  .invoice .accounts .table-2 {
+    width: calc(30% - 30px); }
+  .invoice .accounts .t-head {
+    height: 32px; }
+    .invoice .accounts .t-head th {
+      text-align: center; }
+  .invoice .accounts td {
+    height: 32px; }
+
+.invoice .footer {
+  margin-top: 32px; }

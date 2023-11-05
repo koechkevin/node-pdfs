@@ -1,0 +1,78 @@
+.invoice {
+    .head {
+        display: flex;
+        justify-content: space-between;
+        text-transform: uppercase;
+        gap: 10px;
+        table {
+            padding: 10px 0 0;
+        }
+    }
+    th {
+        text-align: left;
+        padding: 4px;
+    }
+    .t-head {
+        background-color: rgba(17, 72, 48, 0.1);
+        text-transform: uppercase;
+        font-size: 10px;
+    }
+    .body {
+        width: 100%;
+        table {
+            width: 100%;
+            tbody {
+                .content {
+                    padding: 20px 20px;
+                    vertical-align: top;
+                }
+            }
+        }
+        th {
+            text-align: center;
+        }
+        .totals {
+            display: flex;
+            justify-content: flex-end;
+            border-top: 1px solid lightgray;
+            .value {
+                display: flex;
+                justify-content: space-between;
+                text-transform: uppercase;
+                width: 350px;
+                background-color: rgba(250, 204, 26, 0.5);
+                padding: 0 10px;
+            }
+            p {
+                font-weight: 700;
+            }
+        }
+    }
+    .payments {
+        margin-top: 350px;
+    }
+    .accounts {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        .table-1 {
+            width: 70%;
+        }
+        .table-2 {
+            width: calc(30% - 30px);
+        }
+        .t-head {
+            height: 32px;
+            th {
+                text-align: center;
+            }
+        }
+        td {
+            height: 32px;
+        }
+    }
+    .footer {
+        margin-top: 32px;
+    }
+}
