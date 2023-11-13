@@ -16,7 +16,6 @@ export const getUserDetails: ExpressCallBack = async (
     } = req;
     const profile = `${process.env.AUTH_URL}/profile/`;
     try {
-        console.log(req.headers["x-forwarded-for"], req.ips, req.path, token);
         const { data } = await axios.get(profile, {
             headers: { Authorization: `Bearer ${token}` },
         });

@@ -89,7 +89,7 @@ body {
                 vertical-align: bottom;
             }
             p {
-                margin-left: 13px;
+                // margin-left: 13px;
             }
             span.material-symbols-outlined {
                 font-size: 10px;
@@ -119,6 +119,7 @@ body {
 footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     .powered_by {
         p {
             text-transform: uppercase;

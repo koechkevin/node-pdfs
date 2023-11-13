@@ -95,21 +95,18 @@
                     <th style="width: 15%">Total</th>
                 </tr>
                 <tr>
-                    <td class="content border-right">${BILLNO}</td>
-                    <td class="content border-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Suspendisse auctor
-                        dapibus quam in
-                        porttitor.</td>
-                    <td class="content align-right border-right">6</td>
-                    <td class="content align-right border-right">1.00</td>
-                    <td class="content align-right">6.00</td>
+                    <td class="content border-right">${billNo}</td>
+                    <td class="content border-right">${description}</td>
+                    <td class="content align-right border-right">${quantity}</td>
+                    <td class="content align-right border-right">${unitPrice}</td>
+                    <td class="content align-right">${billAmount}</td>
                 </tr>
 
             </table>
             <div class="totals">
                 <div class="value">
                     <p class="grand-totals">Grand Total</p>
-                    <p>56,789.00</p>
+                    <p>${billAmount}.00</p>
                 </div>
             </div>
         </section>
@@ -146,7 +143,7 @@
                 </tr>
                 <tr>
                     <td>912822</td>
-                    <td>${BILLNO}</td>
+                    <td>${billNo}</td>
                 </tr>
             </table>
         </section>
@@ -160,6 +157,7 @@
                     <img height="40px" src="/@{baseUrl}/public/images/nairobi_plan.svg" alt="">
                 </div>
             </div>
+            <img height="64px" src="${qrCode}" alt="">
         </footer>
     </main>
 </body>
