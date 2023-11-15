@@ -6,7 +6,7 @@ hr {
   height: 1px; }
 
 body {
-  background-image: url("http://localhost:9358/public/images/background.png");
+  background-image: url("http://192.168.102.9:9358/public/images/background.png");
   position: relative;
   margin: 0;
   background-repeat: no-repeat;

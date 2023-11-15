@@ -9,5 +9,5 @@ services:
             - 9358:9358
         volumes:
             - ../:/app
-        container_name: inventory-backend
+        container_name: node-pdfs
         command: npm run start
