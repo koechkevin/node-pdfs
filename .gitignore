@@ -16,3 +16,5 @@ Thumbs.db
 # Ignore built ts files
 dist/**/*
 @{baseUrl}
+
+google-chrome-stable_current_amd64.deb
